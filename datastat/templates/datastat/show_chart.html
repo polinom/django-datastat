@@ -4,6 +4,18 @@
 
 {% block extrahead %}
 </style>
+<style>
+  #content_main {
+      border: 1px solid #CCC;
+  }
+  table {
+    width:100%;
+  }
+  .dashboard .module table th {
+width: auto;
+}
+
+</style>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 
@@ -52,7 +64,28 @@
 
 {% block content %}
 <div id="content-main">
-   <div id="chart_div"></div>
+{%for name,field in model_info.items%}
+   <div class="module">
+
+     <table summary="Модели доступны в приложении Audio_Playlist.">
+          <caption><a href="#" class="section">{{field.verbose_name}}</a></caption>
+              <tbody>
+              <tr>
+                  <th scope="row">Count:</th>
+                  <th scope="row">35</th>
+              </tr>
+              <tr>
+                  <th scope="row">Index Amount:</th>
+                  <th scope="row">1250 kb</th>
+              </tr>
+              <tr>
+                  <th scope="row">Data Amount:</th>
+                  <th scope="row">1250 kb</th>
+              </tr>
+          
+          </tbody></table>
+   </div>
+   {%endfor%}
    <div id="chart_div"></div>
 </div>
 {% endblock %}
